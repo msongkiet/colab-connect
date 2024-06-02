@@ -12,8 +12,8 @@ message = """
 """.strip()
 
 
-def start_tunnel() -> None:
-    command = "./code tunnel --accept-server-license-terms --random-name"
+def start_tunnel(tunnel_name) -> None:
+    command = f"./code tunnel --accept-server-license-terms --name {tunnel_name}"
     p = subprocess.Popen(
         command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT
     )
@@ -25,7 +25,7 @@ def start_tunnel() -> None:
         if "To grant access to the server" in line:
             print(line.strip())
         if "Open this link" in line:
-            print("Starting the tunnel")
+            print(f"Starting the {tunnel_name}")
             time.sleep(5)
             print(message)
             print("Logs:")
