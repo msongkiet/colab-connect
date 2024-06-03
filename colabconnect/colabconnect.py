@@ -69,4 +69,4 @@ def colabconnect() -> None:
     run("tar -xf vscode_cli.tar.gz")
 
     print("Starting the tunnel")
-    start_tunnel()
+    start_tunnel("sm-tunnel-8828")
